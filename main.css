@@ -1,0 +1,82 @@
+body {
+  background: #4484CE;
+  margin-top: 80px;
+}
+
+h1{
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: bold;
+  color: #D9D9D9;
+}
+
+footer {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #D9D9D9;
+}
+
+.box {
+  margin: 0 auto;
+  margin-top: 40px;
+  height: auto;
+  background: #D9D9D9;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 30px;
+}
+
+.box p {
+  color: #4484CE;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-family: 'Architects Daughter', cursive;
+  text-align: center;
+  
+}
+
+.author {
+  font-family: 'Lobster', cursive;
+  text-align: center;
+}
+
+.btn {
+  float: right;
+  background: #4484CE;
+  border: none;
+  font-weight: bold;
+  color: #D9D9D9;
+}
+
+.btn:focus {
+  background: #4484CE;
+  border: none;
+  color: #D9D9D9;
+  outline: none !important;
+}
+
+.btn:hover {
+  border: none;
+  background: #286DA8;
+  color: #D9D9D9;
+}
+
+.fa-twitter {
+  padding-left: 25px;
+  color: #4484CE;
+}
+
+.fa-twitter:hover {
+  color: #286DA8;
+}
+
+@media screen and (min-width: 550px) {
+  .box {
+    width: 500px;
+  }
+}
