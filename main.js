@@ -1,42 +1,41 @@
-$(document).ready(function(){
-	//global variable
-	var getQuote;
-	var getAuthor;
+const getMessage = document.getElementById("getMessage");
+const tweet = document.getElementById("tweet");
 
-	function executeSuccess(value)
-	{
-	  var key = JSON.parse(value);
-	  getQuote = key.quote;
-	  getAuthor = key.author;
-	  
-	  $(".message").html('" ' + getQuote + ' "');
-	  $(".author").html('-' + getAuthor);
-	}
+const message = document.getElementById("message");
+const author = document.getElementById("author");
 
-	function generate()
-	{
-	  $.ajax({
-		url: "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=",
-		headers: {
-		"X-Mashape-Key": "7lVinfet9ImshcyRSDbvVQt2cu0Lp1HoshFjsnzwosjdFwr8fQ",
-		"Content-Type": "application/x-www-form-urlencoded",
-		"Accept": "application/json"
-		},
-		success: executeSuccess
-	  });
-	}
+const generate = () => {
 
-	function tweet() {
-	  var twitterURL = "https://twitter.com/intent/tweet" + "?text=" + '"' + getQuote + '"' + "%0A" +  " -" + getAuthor + "&hashtags=quotes";
-	  window.open(twitterURL);
-	}
-  
-  generate();
-  
-  $("#getMessage").on("click", function(){
-    generate();
-  });  
-  $(".tweet").on("click", function(){
-    tweet();
-  });
+	var getQuote = "";
+	var getAuthor = "";
+
+	//Generate random number for array
+	let i = Math.ceil(Math.random() * 1642);
+
+	fetch('https://type.fit/api/quotes')
+    .then( res => res.json())
+    .then( out => {
+
+		getQuote = out[i].text;
+		getAuthor = out[i].author;
+
+		message.textContent = out[i].text;
+		author.textContent = `- ${out[i].author}`;
+
+		const tweets = () => {
+			var twitterURL = "https://twitter.com/intent/tweet" + "?text=" + '"' + getQuote + '"' + "%0A" +  " -" + getAuthor + "&hashtags=quotes";
+			window.open(twitterURL);
+		};
+		
+		tweet.addEventListener('click', () => {
+			tweets();
+		});
+	})
+	.catch(err => console.error(err));
+};
+
+generate();
+
+getMessage.addEventListener('click', () => {
+	generate();
 });

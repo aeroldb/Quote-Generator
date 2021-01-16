@@ -34,13 +34,13 @@ footer {
   margin-bottom: 20px;
 }
 
-.message {
+#message {
   font-family: 'Architects Daughter', cursive;
   text-align: center;
   
 }
 
-.author {
+#author {
   font-family: 'Lobster', cursive;
   text-align: center;
 }
