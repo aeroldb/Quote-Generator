@@ -13,8 +13,8 @@ const generate = () => {
 	let i = Math.ceil(Math.random() * 1642);
 
 	fetch('https://type.fit/api/quotes')
-    .then( res => res.json())
-    .then( out => {
+    	.then( res => res.json())
+    	.then( out => {
 
 		getQuote = out[i].text;
 		getAuthor = out[i].author;
